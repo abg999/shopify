@@ -12,7 +12,7 @@ router.get("/login",(req,res)=>{
 router.get("/logout",function(req,res){
 	req.session.destroy(function(e){
         req.logout();
-        res.redirect('https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http:/mshopify.herokuapp.com/');
+        //res.redirect('https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://mshopify.herokuapp.com/');
     });
   });
 
@@ -22,7 +22,7 @@ router.get("/google",passport.authenticate('google',{
 }));
 
 router.get('/google/redirect',passport.authenticate('google'),(req,res)=>{
-	res.redirect("http:/mshopify.herokuapp.com");
+	res.redirect("https://mshopify.herokuapp.com/");
 })
 
 module.exports=router;
