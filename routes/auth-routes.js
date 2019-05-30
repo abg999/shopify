@@ -12,7 +12,7 @@ router.get("/login",(req,res)=>{
 router.get("/logout",function(req,res){
 	req.session.destroy(function(e){
         req.logout();
-        //res.redirect('https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://mshopify.herokuapp.com/');
+        res.redirect('https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://mshopify.herokuapp.com/');
     });
   });
 
