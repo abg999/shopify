@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+
+
+<div class="container">
+	<div class="row">
+		<h1 style="text-align: center">Edit your Comment</h1>
+		<div style="width:30%; margin: 30px auto;">
+			<form action="/<%=product_id %>/comments/<%=comment._id %>?_method=PUT" method="POST">
+				<div class="form-group"><!-- form-group class to add spacing between form elements-->
+					<input class="form-control" type="text" name="comment[text]" value="<%=comment.text %>">
+				</div>
+				<div class="form-group"><!-- form-group class to add spacing between form elements-->	
+					<button class="btn btn-lg btn-default  btn-primary" style="width:100%">Submit!</button>
+				</div>
+			</form>	
+			<a href="/<%= product_id %>">Go Back</a>
+
+		</div>
+		
+		
+	</div>
+</div>
+<% include ../partials/footer %>

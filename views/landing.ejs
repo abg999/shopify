@@ -1,0 +1,87 @@
+<% include ./partials/header %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/viewall.css ">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.mySlides {display:none;}
+</style>
+<body>
+
+<!--<div class="w3-content w3-section" style="max-width:500px">
+  <img class="mySlides w3-animate-right" src="https://farm9.staticflickr.com/8442/7962474612_bf2baf67c0.jpg" style="width:100%;">
+  <img class="mySlides w3-animate-right" src="https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg" style="width:100%">
+  <img class="mySlides w3-animate-right" src="https://farm7.staticflickr.com/6057/6234565071_4d20668bbd.jpg"
+  style="width:100%">
+  <img class="mySlides w3-animate-right" src="https://farm1.staticflickr.com/60/215827008_6489cd30c3.jpg" style="width:100%">
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2500);    
+}
+</script>-->
+<div style="background-color: white; padding: 0.7em; margin-top:4.5em;" class="container">
+	<h2 style="display:inline;display: inline-block;font-weight: 400;font-size: 22px;line-height: 2px;">Mobiles</h2>
+	<div class="button">
+					<a href="/mobile" id="view-all-btn">VIEW ALL</a>
+				</div>
+				<ln>
+				<hr>
+	
+</div>
+<div style="background-color: white;" class="container">
+<div class="row text-center" style="display:flex; flex-wrap: wrap;"><!--row text center will set text to the center of every element--> 
+		<% mobile.forEach(function(mobile){ %>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+          
+            	<a class="link" href="/<%= mobile._id %>">
+            		 <img class="prod-image" src="<%= mobile.image1 %>">
+            		 <div class="caption">
+                       <h4><%= mobile.modelname %></h4>
+                       <h5><%= mobile.memory %></h5>
+                   	 </div>
+                </a>
+           
+            </div>
+        <% }); %>        
+	</div>
+</div>
+
+<div style="background-color: white; padding: 0.7em; margin-top:4.5em;" class="container">
+	<h2 style="display:inline;display: inline-block;font-weight: 400;font-size: 22px;line-height: 2px;">Mobiles</h2>
+	<div class="button">
+					<a href="/mobile" id="view-all-btn">VIEW ALL</a>
+				</div>
+				<ln>
+				<hr>
+	
+</div>
+<div style="background-color: white;" class="container">
+<div class="row text-center" style="display:flex; flex-wrap: wrap;"><!--row text center will set text to the center of every element--> 
+		<% mobile.forEach(function(mobile){ %>
+            <div class="col-md-2 col-sm-4 col-xs-6">
+          
+            	<a class="link" href="/<%= mobile._id %>">
+            		 <img class="prod-image" src="<%= mobile.image1 %>">
+            		 <div class="caption">
+                       <h4><%= mobile.modelname %></h4>
+                       <h5><%= mobile.memory %></h5>
+                   	 </div>
+                </a>
+           
+            </div>
+        <% }); %>        
+	</div>
+</div>
+
+<% include ./partials/footer %>

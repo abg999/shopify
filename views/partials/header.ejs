@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>3Dots</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	<script
+			  src="https://code.jquery.com/jquery-3.3.1.js"
+			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			  crossorigin="anonymous"></script>
+
+
+</head>
+<script
+			  src="https://code.jquery.com/jquery-3.3.1.js"
+			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			  crossorigin="anonymous"></script>
+<body>
+	<div class="container">
+	<nav class="navbar navbar-inverse navbar-fixed-top"><!-- Nav bar initilization--><!--Navbar inverse class is used to invert colors--><!--navbar-fixed-top is used to keep the navbar fixed at top even while scrolling-->
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false"><!--Hamburger is achieved by using this--><!--data-target should be same as that of id inside class="collapse navbar-collapse ", but with #,  we need to add link to jquery and java script file to hamburger work on click -->
+        			<span class="sr-only">Toggle navigation</span>
+        			<span class="icon-bar"></span><!--This make 1 line of hamburger-->
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+      			</button>
+				<a class="navbar-brand" href="/"><i class="fas fa-shopping-bag"></i>    Shopify.</a><!--For brand name--><!-- span is used to add a glyphicon-->
+			</div>
+			<div class="collapse navbar-collapse" id="bs-nav-demo"><!--Whatever we write inside this div will be collapsed when mobile size is hit --><!--this id will not have #-->
+	
+		<form  action="/products" method="GET" class="form-inline navbar-form navbar-left">
+				<div class="form-group">
+					<input type="text" name="search" placeholder="Product Search.." class="form-control">
+    				<input type="submit" value="Search" class="btn btn-default">
+				</div>
+    		</form>
+				<ul class="nav navbar-nav navbar-right">
+
+					
+					<% if(!currentUser) {%>
+					<li><a  data-toggle="modal" data-target="#loginWindow" style="cursor: pointer">Login</a></li>
+					<% } else {  %>
+						<li><a href="/profile">Signed in as <%= currentUser.username%>
+					<li><a href="/logout">Logout</a></li>
+					
+					<% } %></a></li>					
+					<li>
+						<a href="/shopping-cart">
+							<i class="fa fa-shopping-cart" ariahidden="true"></i> Cart<%if (!session.cart){%>
+								<span class="badge">0</a></span> 
+
+						<%	} else if(typeof session.cart==='undefined'){  %>
+								<span class="badge">0</a></span>
+						<% } else{  %>
+						<span class="badge"><%=session.cart.totalQty%></a></span>
+						<% } %>	
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</div>
+<div class="modal fade" id="loginWindow">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			 
+
+			<!--header-->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button><!--times means X for close button--><!--data-dismiss means close the open modal-->
+				<h2>Login/SignUp</h2>
+			</div>
+
+			<!--body-->
+			
+
+			<div class="modal-body">
+				<div class="form-group"><!-- form-group class to add spacing between form elements-->
+				<a   href="/auth/google"><img style="margin-left: " src="/images/btn_google_signin_dark_normal_web.png"></img>
+				</a>
+			</div>
+				<form action="/login" method="POST" role="form"> 
+					<div class="form-group"><!-- form-group class to add spacing between form elements-->
+						<input class="form-control" type="text" name="username" placeholder="username">
+					</div>
+					<div class="form-group"><!-- form-group class to add spacing between form elements-->
+						<input class="form-control" type="password" name="password" placeholder="password">
+					</div>
+					<div class="form-group"><!-- form-group class to add spacing between form elements-->	
+						<button class="btn btn-lg btn-default  btn-primary" style="width:100%">Login</button>
+					</div>
+				</form>
+				<a data-dismiss="modal" data-toggle="modal" data-target="#registerWindow" style="cursor: pointer">SignUp!</a>
+			</div>	
+
+			<!--footer-->
+			<div class="modal-footer"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="registerWindow">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			 
+
+			<!--header-->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button><!--times means X for close button--><!--data-dismiss means close the open modal-->
+				<h2>SignUp</h2>
+			</div>
+
+			<!--body-->
+			
+
+			<div class="modal-body">
+				
+				<form action="/register" method="POST" role="form"> 
+					<div class="form-group"><!-- form-group class to add spacing between form elements-->
+						<input class="form-control" type="text" name="username" placeholder="username">
+					</div>
+					<div class="form-group"><!-- form-group class to add spacing between form elements-->
+						<input class="form-control" type="password" name="password" placeholder="password">
+					</div>
+					<div class="form-group"><!-- form-group class to add spacing between form elements-->
+						<input class="form-control" type="password" name="confirmpassword" placeholder="confirm password">
+					</div>
+					<div class="form-group"><!-- form-group class to add spacing between form elements-->	
+						<button class="btn btn-lg btn-default  btn-primary" style="width:100%">Submit</button>
+					</div>
+
+				</form>
+		
+			</div>	
+
+			<!--footer-->
+			<div class="modal-footer"></div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+

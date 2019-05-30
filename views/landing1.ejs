@@ -1,0 +1,43 @@
+<% include ./partials/header %>
+
+	<div class="outerbox">
+		<div class="outerbox_heading">
+			<div>
+			<div class="row">
+				<!--<div id="success" class="alert alert-success"<% if(noMessage){%> hidden 
+					<% } %> >
+					<%= successMsg %>
+			</div>-->
+			<h2><%=message%></h2>
+				<h2 class="header">Mobiles</h2>
+				<div class="button">
+					<a href="/mobile" id="view-all-btn">VIEW ALL</a>
+				</div>
+			</div>
+
+		</div>
+		<div class="row">
+		<div class="col-lg-3">
+		<% mobile.forEach(function(mobile) { %>
+		
+		<div class="contents-box">
+			<div class="content">
+			<a class="link" href="/<%= mobile._id %>">
+				<div style="height: 150px">
+					<img class="prod-image" src="<%= mobile.image1 %>">                            
+				</div>
+				<div class="model" style="color:"black;><%= mobile.modelname %></div>
+				<div class="memory"> <%= mobile.memory %> </div>
+			</a>
+
+		</div>
+		<% }); %>
+		</div>
+		</div>
+	</div>
+
+	</div>
+	
+	 	
+	</div>
+	<% include ./partials/footer %>

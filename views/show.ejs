@@ -1,0 +1,303 @@
+<% include ./partials/header %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/show.css ">
+
+<div class="container">
+	<div class=row style="padding-top: 3.5em;">
+		<div class="col-lg-5 col-sm-12"  style="background-color: white;" >
+			
+				<div id="res" class="row" style="background-color:white; ">
+					<div class="col-lg-2 col-sm-12">
+						<ul style="display: inline;">
+							<li id="li1">
+								<div style="width: 64px; height: 64px; margin-bottom: 5px;" >
+									<div id="demo" style="background-image:url(<%=founditem.image1 %>);>; border: 1px solid blue; width:100%;">
+									</div>
+								</div>
+							</li>
+							<li id="li2">
+								<div style="width: 64px; height: 64px; margin-bottom: 5px;">
+									<div id="demo2" style="background-image:url(<%=founditem.image2 %>);">
+									</div>
+								</div>
+							</li>
+							
+							<li id="li3">
+								<div style="width: 64px; height: 64px;">
+									<div id="demo3" style="background-image:url(<%=founditem.image3 %>);">
+									</div>
+								</div>
+							</li>
+							<!--<li id="li4">
+								<div style="width: 64px; height: 64px;">
+									<div id="demo4" style="background-image:url(<%=founditem.image4 %>);">
+									</div>
+								</div>
+							</li>-->	
+						</ul>
+					</div>
+					<div class="col-lg-10 col-sm-12" id="zoomed-img" style="background-image:url(<%=founditem.image1 %>);">
+
+					</div>
+					<a href="/add-to-cart/<%=founditem._id %>" class="btn btn-success" role="button">Add to Cart</a>
+				</div>
+
+		</div>
+		<div class="col-lg-7 col-sm-12" style="oveflow: auto;display:block; background-color:white; border-left:2px solid #f0f0f0; padding-top:18px;">
+
+			<p style="font-size:30px; letter-spacing: 1px;"><%= founditem.modelname %>(<%=founditem.color %>,<%= founditem.storage %>)<p>
+
+			<h1>₹<%= founditem.price %></h1>
+			
+
+			<h3>Specifications</h3>
+			<% if(founditem.type==="mobile") { %>
+				<div class="row">
+						<h4 class="heading">General </h4>
+						<div class="col-sm-6 item" >Color:</div>
+						<div class="col-sm-6 item"><%=founditem.color %></div>
+
+						<div class="col-sm-6 item">RAM:</div>
+						<div class="col-sm-6 item"><%=founditem.ram %></div>
+				
+						<div class="col-sm-6 item">Description:</div>
+						<div class="col-sm-6 item"><%=founditem.description %></div>
+
+						<div class="col-sm-6 item">In The Box:</div>
+						<div class="col-sm-6 item"><%=founditem.inthebox %></div>
+
+						<div class="col-sm-6 item">Model No:</div>
+						<div class="col-sm-6 item"><%=founditem.modelnumber %></div>
+
+						<div class="col-sm-6 item">SIM Type:</div>
+						<div class="col-sm-6 item"><%=founditem.Simtype %></div>
+
+						<div class="col-sm-6 item">OTG compatible:</div>
+						<div class="col-sm-6 item"><%=founditem.otgcompatible %></div>
+					</div>
+					<div class="row">
+						<h4 class="heading">Display</h4>
+
+						<div class="col-sm-6 item">Size:</div>
+						<div class="col-sm-6 item"><%=founditem.display %></div>
+
+
+						<div class="col-sm-6 item">Resolution:</div>
+						<div class="col-sm-6 item"><%=founditem.resolution %></div>
+
+
+						<div class="col-sm-6 item">GPU:</div>
+						<div class="col-sm-6 item"><%=founditem.gpu %></div>
+					</div>
+
+					<div class="row">
+						<h4 class="heading">OS & Processor</h4>
+
+						<div class="col-sm-6 item">Operating System:</div>
+						<div class="col-sm-6 item"><%=founditem.os %></div>
+
+						<div class="col-sm-6 item">Proessor Type:</div>
+						<div class="col-sm-6 item"><%=founditem.processor %></div>
+
+						<div class="col-sm-6 item">Processor Cores:</div>
+						<div class="col-sm-6 item"><%=founditem.processorcore %></div>
+
+						<div class="col-sm-6 item">Primary Clock Speed:</div>
+						<div class="col-sm-6 item"><%=founditem.clockspeed %></div>
+					</div>
+
+					<div class="row">
+						<h4 class="heading">Memory & Storage</h4>
+
+						<div class="col-sm-6 item">Internal Storage:</div>
+						<div class="col-sm-6 item"><%=founditem.storage %></div>
+
+						<div class="col-sm-6 item">RAM:</div>
+						<div class="col-sm-6 item"><%=founditem.ram %> </div>
+
+						<div class="col-sm-6 item">Expandable Storage:</div>
+						<div class="col-sm-6 item"><%=founditem.expandablestorage %></div>
+					</div>
+					<div class="row">
+						<h4 class="heading">Camera</h4>
+
+						<div class="col-sm-6 item">Primary Camera</div>
+						<div class="col-sm-6 item"><%=founditem.primarycamera %></div>
+
+						<div class="col-sm-6 item">Secondary Camera:</div>
+						<div class="col-sm-6 item"><%=founditem.secondarycamera %></div>
+
+						<div class="col-sm-6 item">Flash:</div>
+						<div class="col-sm-6 item"><%=founditem.flash %></div>
+					</div>
+
+					<div class="row">
+						<h4 class="heading">Connectivity</h4>
+
+						<div class="col-sm-6 item">Network type:</div>
+						<div class="col-sm-6 item"><%=founditem.nwtype%></div>
+
+						<div class="col-sm-6 item">Internet Connectivity:</div>
+						<div class="col-sm-6 item"><%=founditem.internetconnectivity%></div>
+
+						<div class="col-sm-6 item">Micro USB:</div>
+						<div class="col-sm-6 item"><%=founditem.microusbport%></div>
+
+						<div class="col-sm-6 item">Bluetooth Version:</div>
+						<div class="col-sm-6 item"><%=founditem.bluetoothver%></div>
+
+						<div class="col-sm-6 item">Audio Jack:</div>
+						<div class="col-sm-6 item"><%=founditem.audiojack%></div>
+					</div>
+
+					<div class="row">
+						<h4 class="heading">Battery</h4>
+						<div class="col-sm-6 item">Capacity:</div>
+						<div class="col-sm-6 item"><%=founditem.battery%></div>
+					</div>
+
+					<div class="row">
+						<h4 class="heading">Other Details</h4>
+						<div class="col-sm-6 item">Sensors:</div>
+						<div class="col-sm-6 item"><%=founditem.sensors%></div>
+					</div>
+
+					<div class="row" style="border-bottom: 5px solid #f0f0f0">
+						<h4 class="heading">Dimensions</h4>
+							<div class="col-sm-6 item">Width:</div>
+							<div class="col-sm-6 item"><%=founditem.width%></div>
+
+							<div class="col-sm-6 item">Height:</div>
+						<div class="col-sm-6 item"><%=founditem.height%></div>
+
+							<div class="col-sm-6 item">Depth:</div>
+						<div class="col-sm-6 item"><%=founditem.depth%></div>
+
+							<div class="col-sm-6 item">Weight:</div>
+							<div class="col-sm-6 item"><%=founditem.weight%></div>
+						</div>
+			<% } %>
+
+				<div class="row" id="comments">
+				<h3>Comments</h3>
+					
+					 <% if(!currentUser) { %>
+
+          <!--If the user is not logged in, direct him to the login page-->
+
+          <h5>You need to login before you can comment. <a style="cursor: pointer;" data-toggle="modal" data-target="#loginWindow">Click here</a> to go to the login page.</h5>
+
+            <% } %>
+
+            <% if(currentUser) { %>
+
+          <!--If the user is logged in, show the new comment form-->
+          <div class="well" style="border-left:solid 5px green">
+          <h4>Write your comment <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span></h4>
+
+          <form id="add-comment-form" action="/<%= founditem._id %>/comments" method="POST">
+          
+            <div class="form-group">
+
+              <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
+
+            </div>
+
+            <div class="form-group">
+
+              <textarea class="form-control" name="comment[text]" placeholder="Write your comment..." form="add-comment-form" rows="5" cols="70"></textarea>
+
+            </div>
+
+            <div class="form-group">
+
+              <button class="btn btn-success btn-sm">Comment <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></button>
+
+            </div>
+
+          </form>
+          </div>
+            <% } %>
+					
+					<% if(founditem.comments.length===0){ %>
+						<p> No comments yet... </p>
+					<% } else {  %>
+					<% founditem.comments.forEach(function(comment){ %>
+						<div class="row" >
+							<div class="col-md-12" >
+								<% if (currentUser && currentUser._id.equals(comment.author.id)) { %>
+
+            							<!--If the current user owns the comment, change the color of the user icon-->'
+            						<span style="color: steelblue;" class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            					<% } else { %>
+            					<!--Else just display it black-->
+            						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            					<% } %></i>  <strong><%= comment.author.username %></strong>
+								<!--<span class="pull-right"><%=comment.created.toDateString()%></span>-->
+								<span class="pull-right"><%= moment(comment.createdAt).fromNow('LLLL') %></span>
+
+
+								<p>
+									<%=comment.text %>
+								</p>
+								<% if(currentUser && comment.author.id.equals(currentUser._id)){%><!--currentUser is from app.js file where it is added to every route-->
+							<a class="btn btn-xs btn-warning" role="button" data-toggle="collapse" href="#collapseEdit<%= comment._id %>" aria-expanded="false" aria-controls="collapse<%= comment._id %>">Edit</a>
+
+
+ 							         <!--Edit comment form-->
+
+          <div class="collapse" id="collapseEdit<%= comment._id %>">
+
+            <div class="well" style="border-left: 5px solid #ffbb33; margin-top: 15px;">
+
+              <h4>Edit your comment <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></h4>
+
+              <form id="edit-comment-form" action="/<%= founditem._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+
+                <div class="form-group">
+
+                  <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
+
+                </div>
+
+                <div class="form-group">
+
+                  <textarea class="form-control" name="comment[text]" placeholder="Your comment text..." form="edit-comment-form" rows="5" cols="70"><%= comment.text %></textarea>
+
+                </div>
+
+                <div class="form-group">
+
+                  <button class="btn btn-warning btn-sm">Edit comment <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></button>
+
+                </div>
+
+              </form>
+
+            </div>
+
+          </div>
+
+
+							<form class="delete-form" action="/<%= founditem._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+							<input style="display:inline;" type="submit" class="btn btn-xs btn-danger" value="Delete">
+							</form>
+
+							<%}%>
+
+							</div>
+
+						</div>
+
+
+					<% }) %>
+					<% } %>
+				
+				</div>
+			</div>
+	</div>
+</div>
+
+
+	
+<script type="text/javascript" src="/js/show.js"></script>
+<% include ./partials/footer %>
