@@ -25,8 +25,8 @@ const keys=require("./config/keys");
 var middleware=require("./middleware/index.js");
 
 var emailid;
- // seedDB();
-mongoose.connect("mongodb://localhost/3dots");
+  seedDB();
+mongoose.connect("mongodb://ashish999:ashish999@ds263876.mlab.com:63876/mshopify");
 app.use(express.static(__dirname+"/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs");
