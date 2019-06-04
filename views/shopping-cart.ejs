@@ -27,9 +27,17 @@
 				</div>
 			</div>
 		</div>
-		<div  class="row">
+		<% if(!currentUser){ %>
+			<h5>You need to login before you can Checkout and pay. <a style="cursor: pointer;" data-toggle="modal" data-target="#loginWindow">Click here</a> to go to the login page.</h5>
+
+        <% }else{ %>
+        	<div  class="row">
 			<div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
 				<a href="/checkout" method="POST" type="button" class="btn btn-success">Checkout</button>
+
+
+       <% }%>
+		
 		
 	<% }else{%>
 
